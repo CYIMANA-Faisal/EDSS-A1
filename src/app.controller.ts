@@ -1,0 +1,17 @@
+import { Controller, Get, HttpCode, HttpStatus } from '@nestjs/common';
+import { AppService } from './app.service';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  /**
+   * Endpoint to get a greeting message.
+   * @returns A greeting message.
+   */
+  @Get()
+  @HttpCode(HttpStatus.OK)
+  getHello(): string {
+    return this.appService.getHello();
+  }
+}
